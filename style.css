@@ -1,0 +1,126 @@
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(76, 0, 0);
+    
+}
+
+.board{
+    background-color: rgb(0, 0, 0);
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective:1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+img{
+    
+    margin: 18px;
+    width: 120px;
+    height: 120px;
+    display: block;
+    
+    
+}
+
+ .carta{
+    background-color: rgba(53, 51, 51, 0.7);
+    width: calc(25%);
+    height: calc(25% );
+    margin: auto;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    border: 1px solid rgb(0, 0, 0);
+    transform: scale(1);
+    transform-style:preserve-3d;
+    transition: transform .5s;
+    border-radius: 5px;
+}  
+ .fronte,
+ .retro{
+padding: 5px; 
+border-radius: 5px;
+position: absolute;
+backface-visibility: hidden;
+
+}  
+
+.fronte{
+    transform: rotateY(180deg);
+}
+.carta:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}  
+
+.carta.flip{
+    transform: rotateY(180deg);   
+}
+
+modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    width: 360px;
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+moadal p {
+    margin: bottom 24px;
+}
+modal button{
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 50px;
+    border: 0;
+    background-color: rgb(236, 134, 0);
+    font-weight: 600;
+    color: white;
+}
+body.vittoria::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.timer{
+    margin-top: 20px;
+    font-size: 3.6rem;
+    color: white;
+    font-family: sans-serif;
+
+}
+.timer p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.timer span:not(:last-child)::after{
+    content: ":";
+    display: inline-block;
+   margin: 0 10px;
+}
